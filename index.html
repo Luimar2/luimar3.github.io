@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Estudo JavaScript</title>
+    <link rel="icon" type="image/x-icon" href="https://supdilsan.com.br/images/favicon.svg" />
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords"
+        content="Luimar Dilsan Mota, designer gráfico e webdeigner, criação de ates, branding e identidade visual" />
+    <meta name="description"
+        content="Luimar Dilsan Mota é designer, webdeigner e profissional de marketing, especialista em identidade visual e criação de ates. Conheça seu trabalho!" />
+    <meta name="author" content="Luimar Dilsan Mota" />
+    <meta name="robots" content="index, follow" />
+    <!--Open Graph-->
+    <meta property="og:title" content="Luimar Dilsan Mota | Designer e Profissional de Marketing" />
+    <meta property="og:description"
+        content="Especialista em design gráfico e marketing digital, Luimar Dilsan Mota cria estampas exclusivas para camisetas automotivas. Saiba mais sobre seu trabalho!" />
+    <meta property="og:image" content="https://supdilsan.com.br/images/dilsan-mota.jpg" />
+    <meta property="og:url" content="https://supdilsan.com.br" />
+    <meta property="og:type" content="website" />
+    <!--Twitter Card-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Luimar Dilsan Mota | Designer e Profissional de Marketing" />
+    <meta name="twitter:description"
+        content="Designer especializado em identidade visual e estampas automotivas. Conheça o trabalho de Luimar Dilsan Mota!" />
+    <meta name="twitter:image" content="https://supdilsan.com.br/images/dilsan-mota.jpg" />
+    <meta name="twitter:url" content="https://supdilsan.com.br" />
+    <meta name="twitter:site" content="@luimar2" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsivo.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Aprendendo JavaScript v1.0</h1>
+            <div class="fix">
+                <p>Esse material não é propriamente um tutorial, pois não tem finalidade de ensinar algo "pronto" por
+                    assim dizer,
+                    é apenas um material de apoio para estudo e aprendizado.<br>
+                    O objetivo é apresentar os principais conceitos e funcionalidades do JavaScript, com exemplos
+                    práticos
+                    e explicações claras.<br>
+                    O conteúdo é voltado para iniciantes, mas também pode ser útil para desenvolvedores mais
+                    experientes.
+                </p>
+                <p>Para melhor acompanhar, abaixo segue um índice de apoio:</p>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#javascript">O que é JavaScript?</a></li>
+                        <li><a href="#variavel">O que é uma variável?</a></li>
+                        <li><a href="#operadores">Vamos entender os operadores</a></li>
+                        <li><a href="#funcoes">Vamos entender as funções</a></li>
+                        <li><a href="#objetos">Como funcionam os Objetos?</a></li>
+                        <li><a href="#eventos">Vamos entender os Eventos</a></li>
+                        <li><a href="#arrays">Como funciona os Arrays</a></li>
+                        <li><a href="#declaracoesCondicionais">O que são Declarações Condicionais</a></li>
+                        <li><a href="#switch">Como funciona um Switch</a></li>
+                        <li><a href="#lacosRepeticao">Vamos entender os Laços de Repetição</a></li>
+                        <li><a href="#eventosTempo">Vamos entender os Eventos de Tempo</a></li>
+                        <li><a href="#classe">O que são Classe em JavaScript</a></li>
+                        <li><a href="#manipularDatas">Manipular datas no JavaScript</a></li>
+                        <li><a href="#json">Vamos entender de JSON</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="conteudo" class="right">
+            <section id="javascript" class="fluid">
+                <div class="content">
+                    <h2>O que é JavaScript?</h2>
+                    <p>JavaScript é uma linguagem de programação que adiciona interatividade ao seu site. Ele permite
+                        ações
+                        como resposta a cliques de botões, validação de formulários, mudanças dinâmicas na página,
+                        animações
+                        e muito mais.
+
+                        Junto com <b>HTML</b> (que estrutura o conteúdo) e <b>CSS</b> (que define o estilo), o
+                        JavaScript dá
+                        vida ao site,
+                        tornando-o dinâmico e interativo.
+
+                        Apesar do nome parecido, <b>JavaScript (JS)</b> e <b>Java</b> são linguagens completamente
+                        diferentes. Enquanto o
+                        Java é amplamente utilizado no desenvolvimento de aplicativos, softwares corporativos e
+                        dispositivos
+                        móveis, o JavaScript é voltado principalmente para a programação web.</p>
+                    <h3>Trabalhando com JavaScript</h3>
+                    <p>Para manipular JavaScript, é ideal que você já tenha conhecimento de HTML e CSS. Vamos
+                        começar criando um alerta simples, que pode ser incorporado diretamente no HTML usando a tag
+                        <b>&lt;script&gt;</b>. Por exemplo:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;script&gt;alert("Olá, Mundo!");&lt;/script&gt;
+                </code></pre>
+                    </div>
+                    <p>No entanto, um alerta constante tornaria o site pouco funcional. Além disso, escrever scripts
+                        diretamente no HTML pode deixar o código desorganizado e difícil de manter.
+                        Por isso, o mais recomendado é criar um arquivo externo para o JavaScript, como na maioria
+                        dos casos. Para carregar esse arquivo no HTML, utilizamos a seguinte sintaxe:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;script&gt;js/script.js&lt;/script&gt;
+            </code></pre>
+                    </div>
+                    <p>Aqui:
+                        <b>js/</b> é a pasta onde o arquivo JavaScript está armazenado (o nome da pasta pode ser
+                        qualquer um).
+                        <b>script.js</b> é o arquivo JavaScript, que também pode ter qualquer nome, desde que tenha
+                        a extensão <b>.js</b>.
+                    </p>
+                    <p>Agora vamos chamar um texto escrito no arquivo JS, existem duas formas:</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;p&gt;&lt;script&gt;
+document.write("&lt;i&gt;A primeira é escrevendo dentro do HTML com JavaScript document.write()&lt;/i&gt;");
+&lt;/script&gt;&lt;/p&gt;
+                </code></pre>
+                    </div>
+                    <p>
+                        <script>
+                            document.write("<i>A primeira é escrevendo dentro do HTML com JavaScript document.write()</i>");
+                        </script>
+                    </p>
+
+                    <p>O método document.write() escreve conteúdo diretamente na página HTML enquanto ela está sendo
+                        carregada.</p>
+                    <p>E a outra forma é como devemos trabalhar, chamando o texto que está dentro do arquivo
+                        <b>.js</b>
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;p id="texto"&gt;&lt;/p&gt;
+                </code></pre>
+                    </div>
+                    <p>Essa ainda é a melhor forma de se trabalhar, não correndo o risco de sobrescrever outros códigos.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+document.getElementById("texto").innerHTML = "&lt;i&gt;Meu primeiro texto com &lt;b&gt;JS&lt;/b&gt;!&lt;/i&gt;";
+                </code></pre>
+                    </div>
+                    <p>Veja o resultado logo baixo:</p>
+                    <p id="texto"></p>
+                    <h3>Explicação:</h3>
+                    <p>document → Representa a página HTML carregada no navegador. Ele permite acessar e manipular os
+                        elementos do documento.</p>
+                    <p>.getElementById("texto") → Busca um elemento HTML que tenha o atributo id="texto".</p>
+                    <p>Se no HTML houver &lt;p id="texto"&gt;&lt;/p&gt;, esse método encontra esse parágrafo.</p>
+                    <p>.innerHTML → Permite alterar o conteúdo HTML dentro do elemento encontrado.</p>
+                    <p>Esse comando substitui tudo dentro da tag selecionada.</p>
+                    <p>= "Meu primeiro texto com JS!"; → Define um novo conteúdo para o elemento HTML.</p>
+                    <p>Se antes a tag &lt;p id="texto"&gt;&lt;/p&gt; estava vazia, ela agora terá o texto "Meu primeiro
+                        texto com JS!".</p>
+                    <p>Para finalizarmos essa parte, vamos ver o <b>console.log()</b>. Tem a mesma função do alert();
+                        porém é os resultados são apresentados apenas no console do navegador.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+console.log("Números entre aspas = texto '2 + 2' e fora é uma função =", 2 + 2);
+                </code></pre>
+                    </div>
+                    <p>Abra o console do navegador e veja o resultado do código acima.<br>
+                        <b>OBS.:</b> O Console do navegador geralmente é acessado pela tecla F12 do teclado.
+                    </p>
+                </div>
+            </section>
+            <section id="variavel" class="fluid">
+                <div class="content">
+                    <h2>O que é uma variável?</h2>
+                    <p>Uma variável é um espaço na memória do computador usado para armazenar valores, que podem ser de
+                        diversos tipos, como números, textos, objetos, funções e muito mais.</p>
+                    <p>No JavaScript, as variáveis são declaradas utilizando as palavras-chave <b>var</b>, <b>let</b> ou
+                        <b>const</b>, cada uma com suas particularidades:
+                    </p>
+                    <p><b>var</b> – Pode ser redeclarada e não é limitada ao escopo de bloco.</p>
+                    <p><b>let</b> – Não pode ser redeclarada e é restrita ao escopo de bloco.</p>
+                    <p><b>const</b> – Não pode ser redeclarada, é restrita ao escopo de bloco e seu valor não pode ser
+                        alterado após a atribuição.</p>
+                    <p>Entender essas diferenças é essencial para escrever códigos mais organizados e eficientes!</p>
+                    <h3>Declaração de variáveis </h3>
+                    <p>A declaração pode receber o nome que quiser desde que não contenha carácters especiais como "@",
+                        não comece com letras maiúsculas não seja separados por traço como "nome-sobrenome" e nem
+                        contenha
+                        espaço entre os nomes, no cajo o ideal seria "nomeSobrenome".</p>
+                    <p>Podemos declarar as variáveis da seguinte forma:</p>
+                    <p><b>var</b> nome</p>
+                    <p><b>var</b> sobrenome</p>
+                    <p><b>var</b> nomeCompleto</p>
+                    <p>ou conforme abaixo que é mais fluido e prático.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var nome, sobremone, nomeCompleto
+                </code></pre>
+                    </div>
+                    <h3>Atribuição de valores</h3>
+                    <p>Para que uma variável seja útil é necessário que ele tenha um valor, nesse caso devemos
+                        atribuir um valor a variável para que possa dar retorno em um código.</p>
+                    <p>Vejamos o exemplo logo abaixo:</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+nome = "José"
+sobrenome = "da Silva"
+nomeCompleto = nome + " " + sobrenome
+
+document.getElementById("nome_completo").innerHTML = nomeCompleto;
+            </code></pre>
+                    </div>
+                    <p>Precisamos criar o id para chamar no HTML, nesse caso vamos cria um parágrafo</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;p id="nome_completo"&gt;&lt;/p&gt;
+            </code></pre>
+                    </div>
+                    <p>Como pode ver, o resultado da junção de valores através da variável, é apresentado logo no
+                        parágrafo abaixo.</p>
+                    <p id="nome_completo"></p>
+                </div>
+            </section>
+            <section id="operadores" class="fluid">
+                <div class="content">
+                    <h2>Vamos entender os operadores</h2>
+                    <p>Operadores são símbolos que representam uma operação a ser realizada entre variáveis, valores,
+                        etc.<br>
+                        No JavaScript, temos os seguintes tipos de operadores:</p>
+                    <table class="tabela">
+                        <tbody>
+                            <tr>
+                                <td>→ Aritméticos</td>
+                                <td>→ Concatenação</td>
+                                <td>→ Condicional Ternário</td>
+                            </tr>
+                            <tr>
+                                <td>→ Atribuição</td>
+                                <td>→ Comparação</td>
+                                <td>→ Lógicos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="listaespecial">
+                        <p>
+                            → Aritméticos</br>
+                            → Concatenação</br>
+                            → Condicional Ternário</br>
+                            → Atribuição</br>
+                            → Comparação</br>
+                            → Lógicos
+                        </p>
+                    </div>
+                    <p>Os sinais mais utilizados são:<br>
+                    <table class="tabela">
+                        <tbody>
+                            <tr>
+                                <td>+ <i>(adição)</i></td>
+                                <td>% <i>(módulo)</i></td>
+                                <td>!= <i>(diferente)</i></td>
+                                <td>&gt;= <i>(maior ou igual que)</i></td>
+                                <td>! <i>(não)</i></td>
+                            </tr>
+                            <tr>
+                                <td>- <i>(subtração)</i></td>
+                                <td>= <i>(atribuição)</i></td>
+                                <td>!== <i>(diferente estrito)</i></td>
+                                <td>&lt;= <i>(menor ou igual que)</i></td>
+                                <td>++ <i>(incremento)</i></td>
+                            </tr>
+                            <tr>
+                                <td>* <i>(multiplicação)</i></td>
+                                <td>== <i>(igualdade)</i></td>
+                                <td>&gt; <i>(maior que)</i></td>
+                                <td>&& <i>(e)</i></td>
+                                <td>-- <i>(decremento)</i></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>/ <i>(divisão)</i></td>
+                                <td>=== <i>(igualdade estrita)</i></td>
+                                <td>&lt; <i>(menor que)</i></td>
+                                <td>|| <i>(ou)</i></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="listaespecial">
+                        <p>
+                            + <i>(adição)</i></br>
+                            - <i>(subtração)</i></br>
+                            * <i>(multiplicação)</i></br>
+                            / <i>(divisão)</i></br>
+                            % <i>(módulo)</i></br>
+                            = <i>(atribuição)</i></br>
+                            == <i>(igualdade)</i></br>
+                            === <i>(igualdade estrita)</i></br>
+                            != <i>(diferente)</i></br>
+                            !== <i>(diferente estrito)</i></br>
+                            &gt; <i>(maior que)</i></br>
+                            &lt; <i>(menor que)</i></br>
+                            &gt;= <i>(maior ou igual que)</i></br>
+                            &lt;= <i>(menor ou igual que)</i></br>
+                            && <i>(e)</i></br>
+                            || <i>(ou)</i></br>
+                            ! <i>(não)</i></br>
+                            ++ <i>(incremento)</i></br>
+                            -- <i>(decremento)</i>
+                        </p>
+                    </div>
+                    <h3>Operadores Aritméticos</h3>
+                    <p>Operadores aritiméticos são usados para operações matemáticas, vamos criar algumas variáveis e
+                        atribuir
+                        valores a elas.<br>
+                        Em seguida, já com os valores declarados, criamos um código para retornar os devidos cálculos
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var valor1 = 5, valor2 = 2, soma, subtracao, multiplicacao, divisao, modulo;
+
+document.getElementById("operadores_aritmeticos").innerHTML =
+    `&lt;p style="padding-right: 2rem;"&gt;&lt;b&gt;soma&lt;/b&gt; = 
+    ${soma = valor1 + valor2}&lt;/p&gt;`;
+
+document.getElementById("operadores_aritmeticos").innerHTML +=
+    `&lt;p style="padding-right: 2rem;"&gt;&lt;b&gt;subtracao&lt;/b&gt; = 
+    ${subtracao = valor1 - valor2}&lt;/p&gt;`;
+
+document.getElementById("operadores_aritmeticos").innerHTML +=
+    `&lt;p style="padding-right: 2rem;"&gt;&lt;b&gt;multiplicacao&lt;/b&gt; = 
+    ${multiplicacao = valor1 * valor2}&lt;/p&gt;`;
+
+document.getElementById("operadores_aritmeticos").innerHTML +=
+    `&lt;p style="padding-right: 2rem;"&gt;&lt;b&gt;divisao&lt;/b&gt; = 
+    ${divisao = valor1 / valor2}&lt;/p&gt;`;
+
+document.getElementById("operadores_aritmeticos").innerHTML +=
+    `&lt;p style="padding-right: 2rem;"&gt;&lt;b&gt;módulo&lt;/b&gt; = 
+    ${modulo = valor1 % valor2}&lt;/p&gt;`;
+                        </code></pre>
+                    </div>
+                    <p>Nota-se que usamos no código +=, que nada mais que uma chamada para adcionar uma atribuição.<br>
+                        E para fazer isso funcionar, precisamos criar um id no HTML:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;div class="row" id="operadores_aritmeticos"&gt;&lt;/div&gt;
+                        </code></pre>
+                    </div>
+                    <p>Nota-se que podem haver stilos e classes CSS, mas não é o tema abordado aqui,
+                        caso necessário retire ou mude conforme a necessidade.<br>
+                        O resultado segue logo abaixo:</p>
+                    <div class="row" id="operadores_aritmeticos"></div>
+                    <h3>Operadores de Incremento e Decremento</h3>
+                    <p>Os operadores de incremento <b>++</b> adicionam 1 número a mais ao valor numérico da variável,
+                        já o de decremento <b>--</b> subtrai 1 número do valor da variável.<br>
+                        Isso não apenas soma ou subitrai um número, mas também altera o valor da variável, sento assim a
+                        variável que antes valia "x", agora passa a valer "y".<br>
+                        Veja abaixo o id de chamada do script:</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;div class="row" id="operadores_incremento_decremento"&gt;&lt;/div&gt;
+                        </code></pre>
+                    </div>
+                    <p>O código não muda muito, note que é muito semelhante a anterior.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var valor3 = 9, valor4 = 3;
+
+document.getElementById("operadores_incremento_decremento").innerHTML =
+    `&lt;p style="padding-right: 2rem;"&gt;&lt;b&gt;valorIncremento&lt;/b&gt; =${valorIncremento = ++valor3}&lt;/p&gt;`;
+    
+document.getElementById("operadores_incremento_decremento").innerHTML +=
+    `&lt;p style="padding-right: 2rem;"&gt;&lt;b&gt;valorDecremento&lt;/b&gt; =${valorDecremento = --valor4}&lt;/p&gt;`;
+                        </code></pre>
+                    </div>
+                    <p>As novas variáveis não precisam estar fora para assumir novos valores, mas em determinadas
+                        situações
+                        elas perdem ou alteram seus valores, veja os novos valores passam a ser como está abaixo:</p>
+                    <div class="row" id="operadores_incremento_decremento"></div>
+                    <h3>Operadores de Atribuição</h3>
+                    <p>O valor de atribuicao com uma atributo <b>+=</b> altera o resultado para mais, já que é a adição
+                        de um valor encima do valor anterior.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var valorAtribuicao = 10;
+
+document.getElementById("operadores_atribuicao").innerHTML =
+    `&lt;b&gt;valorAtribuicao&lt;/b&gt; = ${valorAtribuicao += 5}`;
+                        </code></pre>
+                    </div>
+                    <p>Nesse caso a variável passa a ter um novo valor</p>
+                    <p id="operadores_atribuicao"></p>
+                    <p>Essa é uma operação que pode ser feito também com os demais operadores aritiméticos -=, *=, /= e
+                        %=</p>
+                    <h3>Operador de Concatenação</h3>
+                    <p>A concatenação é como se fosse a soma de texto, é como uma junção de nomes da qual é possivel
+                        atribuir a
+                        uma nova variável, ou simplesmente juntar informações.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var texto1 = "Robert ", texto2 = "Downey Jr.";
+
+document.getElementById("operadores_concatenacao").innerHTML =
+    `&lt;b&gt;Concatenação&lt;/b&gt; = ${texto1 + texto2}`;
+                        </code></pre>
+                    </div>
+                    <p>O resultado você pode conferir logo abaixo:</p>
+                    <p id="operadores_concatenacao"></p>
+                    <h3>Operadores de Comparação</h3>
+                    <p>Os operadores de comparação são usados para comparar valores e retornam um valor booleano (true
+                        ou false). Eles são essenciais para a tomada de decisões no código, como em estruturas
+                        condicionais (if, while).<br>
+                        Vamos ver um exemplo de código e respectivamente o resultado aqui no html:</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+    var valorComp1 = 10, valorComp2 = 5, valorComp3 = "5";
+
+document.getElementById("operadores_comparacao").innerHTML =
+    `&lt;p style="padding-right: 2rem; text-align: center;"&gt;10 &lt;b&gt;==&lt;/b&gt; 5&lt;br&gt;
+    ${valorComp1 == valorComp2}&lt;/p&gt;`;
+
+document.getElementById("operadores_comparacao").innerHTML +=
+    `&lt;p style="padding-right: 2rem; text-align: center;"&gt;5 &lt;b&gt;===&lt;/b&gt; "5"&lt;br&gt;
+    ${valorComp1 === valorComp3}&lt;/p&gt;`;
+
+document.getElementById("operadores_comparacao").innerHTML +=    
+    `&lt;p style="padding-right: 2rem; text-align: center;"&gt;10 &lt;b&gt;!=&lt;/b&gt; 5&lt;br&gt;
+    ${valorComp1 != valorComp2}&lt;/p&gt;`;
+
+document.getElementById("operadores_comparacao").innerHTML +=    
+    `&lt;p style="padding-right: 2rem; text-align: center;"&gt;10 &lt;b&gt;!==&lt;/b&gt; 5&lt;br&gt;
+    ${valorComp1 !== valorComp2}&lt;/p&gt;`;
+
+document.getElementById("operadores_comparacao").innerHTML +=
+    `&lt;p style="padding-right: 2rem; text-align: center;"&gt;10 &lt;b&gt;&gt;&lt;/b&gt; 5&lt;br&gt;
+    ${valorComp1 &gt; valorComp2}&lt;/p&gt;`;
+
+document.getElementById("operadores_comparacao").innerHTML +=
+    `&lt;p style="padding-right: 2rem; text-align: center;"&gt;10 &lt;b&gt;&lt;&lt;/b&gt; 5&lt;br&gt;
+    ${valorComp1 &lt; valorComp2}&lt;/p&gt;`;
+
+document.getElementById("operadores_comparacao").innerHTML +=
+    `&lt;p style="padding-right: 2rem; text-align: center;"&gt;10 &lt;b&gt;&gt;=&lt;/b&gt; 5&lt;br&gt;
+    ${valorComp1 &gt;= valorComp2}&lt;/p&gt;`;
+
+document.getElementById("operadores_comparacao").innerHTML +=
+    `&lt;p style="padding-right: 2rem; text-align: center;"&gt;10 &lt;b&gt;&lt;=&lt;/b&gt; 5&lt;br&gt;
+    ${valorComp1 &lt;= valorComp2}&lt;/p&gt;`;
+                            </code></pre>
+                    </div>
+                    <p>Note que há apenas uma comparação onde 5 é comparado com ele mesmo, isso foi feito
+                        para compara se além de serem iguais no valores, se eles são equivalentes, no caso um dos
+                        valores é um texto, pois a variável com "5" está com aspas e tornando-a um texto.<br>
+                        Abaixo você vê o resultado de cada comparação:
+                    </p>
+                    <div class="row" id="operadores_comparacao"></div>
+                    <h3>Operador Condicional Ternário</h3>
+                    <p>O operador de condição ternária, também é um operador de comparação, o detalhe aqui será
+                        que iremos utilizar o operador "?" <i>(ternário)</i>
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var valorIdade = 18;
+var valorResultado = (valorIdade >= 18) ? "Maior de Idade" : "Menor de Idade";
+
+document.getElementById("operador_condicional_ternario").innerHTML =
+    `O indivíduo é &lt;b&gt;${valorResultado}&lt;/b&gt;`;
+                        </code></pre>
+                    </div>
+                    <p>No caso damos uma condição para dizer se o indivíduo é maior ou menor de idades, abaixo você
+                        pode ver o resultado:
+                    </p>
+                    <p id="operador_condicional_ternario"></p>
+                    <h3>Operadores Lógicos</h3>
+                    <p>Os operadores lógicos trabalham com mais de um item a ser questionado, e somente com determinada
+                        condição ele me dá um retorno "verdadeiro" ou "falso".<br>
+                        Vamos trabalhar com os operadores "&&" <i>(e)</i>, "||" <i>(ou)</i> e "!" <i>(não)</i>.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var valorLogico1 = (valorIdade &gt;= 18 && valorIdade &lt;= 60) ? "Verdadeiro" : "Falso"; 
+var valorLogico2 = (valorIdade === "18" || valorIdade === 60) ? "Verdadeiro" : "Falso";
+var valorLogico3 = !(valorIdade === "18") ? "Verdadeiro" : "Falso";
+
+document.getElementById("operadores_logicos").innerHTML =
+    `&lt;p&gt;Se as duas condições são verdadeiras o resultado é = &lt;b&gt;${valorLogico1}&lt;/b&gt;&lt;/p&gt;`;
+
+document.getElementById("operadores_logicos").innerHTML +=
+    `&lt;p&gt;Se uma das duas condições são verdadeiras o resultado é = &lt;b&gt;${valorLogico2}&lt;/b&gt;&lt;/p&gt;`;
+
+document.getElementById("operadores_logicos").innerHTML +=
+    `&lt;p&gt;Se a condição é falsa o resultado é = &lt;b&gt;${valorLogico3}&lt;/b&gt;&lt;/p&gt;`;
+                        </code></pre>
+                    </div>
+                    <p>Se uma pessoa tem idade = 18<br>
+                        O operador lógioco <b>&&</b> apresentado, pergunta se as duas condições são verdadeiras;<br>
+                        Já o operador lógioco <b>||</b> apresentado, pergunta se uma das condições são verdadeiras;<br>
+                        O operador lógioco <b>!</b> apresentado, pergunta se a condição é falsa.<br>
+                        O resultado podemos ver logo em seguida:</p>
+                    <div id="operadores_logicos"></div>
+                </div>
+            </section>
+            <section id="funcoes" class="fluid">
+                <div class="content">
+
+                    <h2>Vamos entender as funções</h2>
+                    <p>Uma função no JavaScript é um bloco de código projetado para executar uma tarefa específica.<br>
+                        É como uma pequena "fábrica" onde você faz uma entrada e ele dá uma saída.<br>
+                        Pode ser encarado como um "mini-programa" projetado para fazer uma tarefa que vai contribuir com
+                        todo código.<br>
+                        Uma função é executada como algo a invoca, dando uma ordem de ação.</p>
+                    <h3>Função de Somar</h3>
+                    <p>Criamos uma função para somar duas variáveis determinadas com os valores 5 e 2.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var valor5 = 5, valor6 = 2;
+
+function somar(valor5, valor6) {
+    return valor5 + valor6;
+}
+
+document.getElementById("funcao_somar").innerHTML =
+    `A soma de 5+2 é = ${somar(5, 2)}`;
+                        </code></pre>
+                    </div>
+                    <p>Nesse momento a função não precisou de uma ação externa para ser executada, mas ela já
+                        conta com uma ordem para executar a mesma.<br>
+                        Veja o resultado abaixo:
+                    </p>
+                    <p id="funcao_somar"></p>
+                </div>
+            </section>
+            <section id="objetos" class="fluid">
+                <div class="content">
+
+                    <h2>Como funcionam os Objetos?</h2>
+                    <p>Objetos são basicamente variáveis com muitos valores dentro, onde um item podem conter várias
+                        propriedades que é
+                        como são chamados esses valores<br>
+                        Objetos também podem ter "Métodos" que nada mais é que uma função inserida dentro de uma
+                        propriedade.
+                    </p>
+                    <p>Criamos um objeto com o nome pessoa e suas propriedades <b>nome, sobrenome e idade</b>.<br>
+                        Nesse objeto também criamos uma função para retornar o nome completo do objeto pessoa</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var valor5 = 5, valor6 = 2;
+
+function somar(valor5, valor6) {
+    return valor5 + valor6;
+}
+
+document.getElementById("funcao_somar").innerHTML =
+    `A soma de 5+2 é = ${somar(5, 2)}`;
+                        </code></pre>
+                    </div>
+                    <p>Quando chamado o objeto com sua propriedade específica, podemos obter um determinado retono como
+                        vemos no exemplo
+                        abaixo, onde é chamado o nome completo do objeto pessoa.
+                    </p>
+                    <p id="objeto_pessoa"></p>
+                    <p>Ja no exemplo abaixo, é chamado a idade do objeto pessoa.
+                    </p>
+                    <p id="objeto_pessoa_idade"></p>
+                </div>
+            </section>
+            <section id="eventos" class="fluid">
+                <div class="content">
+                    <h2>Vamos entender os Eventos</h2>
+                    <p>Eventos são interações ou ocorrências que acontecem em uma página HTML — como um clique em um
+                        botão, o movimento do mouse sobre um elemento, o envio de um formulário, entre outros.<br>
+                        No JavaScript, é possível "ouvir" esses eventos e reagir a eles executando funções específicas.
+                        Esse processo é chamado de manipulação de eventos.<br>
+                        Ou seja, quando um evento acontece, o JavaScript pode executar uma ação automaticamente, como
+                        exibir uma mensagem, alterar um conteúdo ou aplicar uma animação.
+                    </p>
+                    <p>Os eventos mais comuns são:</p>
+                    <p><b> → onclick</b> - Ocorre quando um elemento é clicado.</p>
+                    <p><b> → ondblclick</b> - Ocorre quando há um duplo click.</p>
+                    <p><b> → onmouseover</b> - Ocorre quando o mouse passa sobre um elemento.</p>
+                    <p><b> → onmouseout</b> - Ocorre quandmouseOvero o mouse sai de um elemento.</p>
+                    <p><b> → onmousemove</b> - Ocorre quando o mouse se move sobre um elemento.</p>
+                    <p><b> → onmousedown</b> - Ocorre quando um botão do mouse é pressionado.</p>
+                    <p><b> → onmouseup</b> - Ocorre quando um botão do mouse é liberado.</p>
+                    <p><b> → onfocus</b> - Ocorre quando um elemento recebe o foco.</p>
+                    <p><b> → onblur</b> - Ocorre quando um elemento perde o foco.</p>
+                    <p><b> → onchange</b> - Ocorre quando o valor de um elemento é alterado.</p>
+                    <p><b> → onkeydown</b> - Ocorre quando uma tecla é pressionada.</p>
+                    <p><b> → onkeypress</b> - Ocorre quando uma tecla é pressionada e liberada.</p>
+                    <p><b> → onkeyup</b> - Ocorre quando uma tecla é liberada.</p>
+                    <p><b> → onload</b> - Ocorre quando um documento é carregado.</p>
+                    <p><b> → onresize</b> - Ocorre quando a janela do navegador é redimensionada.</p>
+
+                    <h3>Evento de clique</h3>
+                    <p>O evento de clique acontece quando o usuário clica em um elemento da página, como um botão, por
+                        exemplo. É um dos eventos mais comuns em interações com páginas HTML, muito utilizado para
+                        enviar formulários, acionar funções ou exibir mensagens.</p>
+                    <p>Vamos criar um exemplo simples para demonstrar seu funcionamento. Em muitos casos, utilizamos o
+                        console.log() para visualizar o resultado ou testar o comportamento do evento de forma prática
+                        durante o desenvolvimento.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function clique() {
+    alert("Você clicou no botão!");
+}
+                        </code></pre>
+                    </div>
+                    <p>Com o código criado, agora precisamos criar o botão para que o evento de clique aconteça.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;button class="botao_amostra" onclick="clique()"&gt;Clique aqui&lt;/button&gt;
+                        </code></pre>
+                    </div>
+                    <p>O resultado você confere logo abaixo dando um clique no botão.</p>
+                    <button class="botao_amostra" onclick="clique()">Clique aqui</button>
+                    <h3>Evento de Clique Duplo</h3>
+                    <p>O evento de clique duplo (ou duplo clique) é acionado quando o usuário clica duas vezes
+                        rapidamente sobre um elemento da página. Esse tipo de evento pode ser utilizado para ações
+                        específicas, como abrir detalhes de um item, editar um conteúdo ou destacar informações.</p>
+                    <p>Vamos criar um exemplo simples para demonstrar como o duplo clique funciona. Assim como em outros
+                        eventos, o uso do console.log() é útil durante o desenvolvimento para verificar se a ação está
+                        sendo executada corretamente.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function cliqueDuplo() {
+    alert("Você clicou 2x!");
+}
+                        </code></pre>
+                    </div>
+                    <p>O resultado você confere logo abaixo dando um clique no botão.</p>
+                    <button class="botao_amostra" ondblclick="cliqueDuplo()">Clique Duplo</button>
+                    <h3>Eventos onmouseover e onmouseout</h3>
+                    <p>Os eventos <b>onmouseover</b> e <b>onmouseout</b> são utilizados para detectar quando o mouse
+                        entra ou sai de
+                        um elemento da página.</p>
+                    <p>Esses eventos são muito usados para criar efeitos visuais, como mudar a cor de um botão, exibir
+                        uma dica ou destacar uma área interativa da interface..</p>
+                    <p>Vamos criar um código para testar o efeito desejado com as duas ações.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function mouseOver() {
+    let div = document.getElementById("OnMouse");
+    div.style.backgroundColor = "red";
+    let txt = document.getElementById("OnMouse");
+    txt.style.color = "white";
+    let ptxt = document.getElementById("OnMouse").innerHTML = "<b>Você passou o mouse!</b>";
+}
+
+function mouseOut() {
+    let div = document.getElementById("OnMouse");
+    div.style.backgroundColor = "";
+    let txt = document.getElementById("OnMouse");
+    txt.style.color = "";
+    let ptxt = document.getElementById("OnMouse").innerHTML = "Não passe o Mouse";
+}
+                        </code></pre>
+                    </div>
+                    <p>Você pode até achar que é um botão, mas veja que o HTML é totalmente diferente</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;div class="campoteste" id="OnMouse" onmouseover="mouseOver()" onmouseout="mouseOut()"&gt;
+    &lt;p&gt;Não passe o Mouse&lt;/p&gt;
+&lt;/div&gt;
+                        </code></pre>
+                    </div>
+                    <p>Abaixo é possivel testar o resultado como uma pequena brincadeira.</p>
+                    <div class="campoteste" id="OnMouse" onmouseover="mouseOver()" onmouseout="mouseOut()">
+                        <span>Não passe o Mouse</span>
+                    </div>
+                    <h3>Eventos onmousemove, onmousedown e onmouseup</h3>
+                    <p>OOs eventos onmousemove, onmousedown e onmouseup são usados para detectar interações mais
+                        detalhadas do mouse com os elementos de uma página. Com onmousemove, é possível capturar o
+                        movimento do mouse enquanto ele se desloca sobre um elemento, permitindo, por exemplo, criar
+                        efeitos de arrastar ou até mostrar as coordenadas em tempo real. Já o onmousedown é disparado no
+                        momento em que o botão do mouse é pressionado sobre um elemento, enquanto o onmouseup é acionado
+                        quando o botão do mouse é solto. Esses eventos funcionam muito bem em conjunto, especialmente
+                        para criar ações como clicar e arrastar ou desenhar elementos na tela.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function mouseMove() {
+    let div = document.getElementById("OnMouse1");
+    div.style.backgroundColor = "blue";
+    let txt = document.getElementById("OnMouse1");
+    txt.style.color = "white";
+    let ptxt = document.getElementById("OnMouse1").innerHTML = "<b>Moveu o mouse!<br>Pressione</b>";
+}
+
+function mouseDown() {
+    let div = document.getElementById("OnMouse1");
+    div.style.backgroundColor = "green";
+    let txt = document.getElementById("OnMouse1");
+    txt.style.color = "white";
+    let ptxt = document.getElementById("OnMouse1").innerHTML = "<b>Você pressionou o mouse!</b>";
+}
+
+function mouseUp() {
+    let div = document.getElementById("OnMouse1");
+    div.style.backgroundColor = "";
+    let txt = document.getElementById("OnMouse1");
+    txt.style.color = "";
+    let ptxt = document.getElementById("OnMouse1").innerHTML = "<b>Você soltou o mouse!</b>";
+}
+                        </code></pre>
+                    </div>
+                    <p>Abaixo é possivel testar o resultado:</p>
+                    <div class="campoteste" id="OnMouse1" onmousemove="mouseMove()" onmousedown="mouseDown()"
+                        onmouseup="mouseUp()">
+                        <span>Mova o mouse</span>
+                    </div>
+                    <h3>Eventos onfocus e onblur</h3>
+                    <p>Os eventos onfocus e onblur são muito úteis para lidar com campos de formulário. O evento onfocus
+                        é ativado quando um elemento, como um campo de texto, ganha o foco — ou seja, quando o usuário
+                        clica ou navega até ele, permitindo a digitação. Já o onblur ocorre quando esse mesmo campo
+                        perde o foco, seja porque o usuário clicou fora dele ou navegou para outro elemento. Esses
+                        eventos são comumente utilizados para destacar campos ativos, validar dados em tempo real ou
+                        esconder e mostrar dicas de preenchimento conforme o usuário interage com o formulário.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function campoFocado() {
+    document.getElementById("onFocus").value = "";
+    let div = document.getElementById("onFocus");
+    div.style.backgroundColor = "yellow";
+    div.style.color = "black";
+}
+
+function campoDesfocado() {
+    document.getElementById("onFocus").value = "Clique para apagar";
+    let div = document.getElementById("onFocus");
+    div.style.backgroundColor = "";
+    div.style.color = "";
+
+}
+                        </code></pre>
+                    </div>
+                    <p>Abaixo é possivel testar o resultado:</p>
+                    <input class="inputteste" id="onFocus" onfocus="campoFocado()" onblur="campoDesfocado()"
+                        value="Clique para apagar">
+                    <h3>Eventos onkeydown, onkeypress e onkeyup</h3>
+                    <p>Os eventos onkeydown, onkeypress e onkeyup estão relacionados à interação do teclado com os
+                        elementos da página. O onkeydown é disparado assim que uma tecla é pressionada, ou seja, no
+                        momento em que o usuário começa a pressionar uma tecla. Já o onkeypress também é acionado
+                        durante a pressão de uma tecla, mas geralmente está associado a teclas que geram caracteres
+                        (embora esse evento esteja sendo cada vez menos utilizado, pois não captura todas as teclas).
+                        Por fim, o onkeyup é ativado quando a tecla é solta, ou seja, após o pressionamento. Esses
+                        eventos são úteis para detectar digitação em tempo real, criar atalhos de teclado ou validar
+                        campos conforme o usuário digita.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function teclaPressionada() {
+    let tecla = document.getElementById("onFocus1");
+    tecla.style.backgroundColor = "#c40000";
+}
+
+function teclaPressionadaELiberada() {
+    let tecla = document.getElementById("onFocus1");
+    tecla.style.backgroundColor = "#20b200";
+    tecla.style.color = "white";
+}
+
+function teclaLiberada() {
+    let tecla = document.getElementById("onFocus1");
+    tecla.style.backgroundColor = "#000d89";
+}
+                        </code></pre>
+                    </div>
+                    <p>Abaixo é possivel testar o resultado:</p>
+                    <input class="inputteste" id="onFocus1" placeholder="Teste o teclado!"
+                        onkeydown="teclaPressionada()" onkeypress="teclaPressionadaELiberada()"
+                        onkeyup="teclaLiberada()">
+                </div>
+            </section>
+            <section id="arrays" class="fluid">
+                <div class="content">
+                    <h2>Como funciona os Arrays</h2>
+                    <p>Arrays são objetos que armazenam várias informações em uma única variável.
+                        No JavaScript, os arrays são declarados com colchetes [ ] e podem conter qualquer tipo de valor,
+                        como números, textos, objetos, funções, etc.<br>
+                        Os arrays são indexados, ou seja, cada elemento do array possui um índice que começa em 0.<br>
+                        Os arrays podem ser acessados e manipulados através dos seus índices.
+                    </p>
+                    <p>Criamos um Array logo abaixo com frutas, veja que foi manipulado e há algumas explicações
+                        dentro do próprio código.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+ function campoAlterado() {
+    alert("Os valores foram alterados!");
+} //Esse evento é chamado quando o campo é alterado.
+
+const frutas = ["Banana", "Maçã", "Morango", "Uva", "Pera"];
+frutas[0] = "Abacaxi"; //Alterando o valor do índice 0, que era Banana agora é Abacaxi
+frutas[5] = "Melancia"; //Adicionando um novo valor no índice 5
+frutas.push("Laranja"); //Adicionando um novo valor no final do array
+
+document.getElementById("array").innerHTML =
+`Na salada de fruta contém: ${frutas}`;
+                        </code></pre>
+                    </div>
+                    <p>Como pode ver o resultado abaixo, não há separação entre os itens, mas logo vamos ver esse
+                        detalhe.</p>
+                    <p id="array"></p>
+                    <p>Um exemplo mais prático para entendermos a aplicação do Array é no botão select logo abaixo,
+                        repare que
+                        são as mesmas frutas da nossa salada, mas você pode escolher uma preferida.
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+document.getElementById("array1").innerHTML = (frutas[0]);
+document.getElementById("array2").innerHTML = (frutas[1]);
+document.getElementById("array3").innerHTML = (frutas[2]);
+document.getElementById("array4").innerHTML = (frutas[3]);
+document.getElementById("array5").innerHTML = (frutas[4]);
+document.getElementById("array6").innerHTML = (frutas[frutas.length - 1]);
+                            </code></pre>
+                    </div>
+                    <p>O índice de um Array sempre começa em 0 <i>(Zero)</i></p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;select class="selectamostra" id="itens" onchange="campoAlterado()"&gt;
+    &lt;option value="1" id="array1"&gt;&lt;/option&gt;
+    &lt;option value="2" id="array2"&gt;&lt;/option&gt;
+    &lt;option value="3" id="array3"&gt;&lt;/option&gt;
+    &lt;option value="4" id="array4"&gt;&lt;/option&gt;
+    &lt;option value="5" id="array5"&gt;&lt;/option&gt;
+    &lt;option value="6" id="array6"&gt;&lt;/option&gt;
+&lt;/select&gt;
+                            </code></pre>
+                    </div>
+                    <p>Qual sua fruta preferida?</p>
+                    <select class="selectamostra" id="itens" onchange="campoAlterado()">
+                        <option value="1" id="array1"></option>
+                        <option value="2" id="array2"></option>
+                        <option value="3" id="array3"></option>
+                        <option value="4" id="array4"></option>
+                        <option value="5" id="array5"></option>
+                        <option value="6" id="array6"></option>
+                    </select>
+                    <p>Há algumas maneira de confirmar se o Array é realmente um, o mais comum é conferir com o
+                        console.log como no código abaixo:</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+console.log(Array.isArray(frutas)); //Verifica se é um array  -  true / false
+//console.log(frutas instanceof Array); //Também verifica se é um array  -  true / false
+                        </code></pre>
+                    </div>
+                    <h3>Métodos para Array <i>(Matrizes)</i></h3>
+                    <p>Os métodos de array são funções embutidas que permitem manipular e interagir com arrays de
+                        maneira eficiente. Eles facilitam operações como adicionar, remover, ordenar e transformar
+                        elementos dentro de um array, tornando o código mais legível e conciso.</p>
+                    <p>Vamos ver alguns exemplos de métodos de array e como eles funcionam:</p>
+                    <h3>Métodos <i>Join()</i></h3>
+                    <p>É possível alterar os separadores entres os elementos de um array usando o <b>join</b>.<br>
+                        Nossa Array <i>graos</i> contém alguns itens e queremoas separalos com " - " veja como fazemos
+                        isso.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const graos = ["Arroz", "Feijão", "Lentilha", "Ervilha", "Grão de Bico"];
+
+document.getElementById("matrizes").innerHTML = (graos.join(" - "));
+                        </code></pre>
+                    </div>
+                    <p>Antes era separada por vírgula e sem espaço agora é:</p>
+                    <p id="matrizes"></p>
+                    <h3>Métodos <i>pop()</i></h3>
+                    <p>Para excluir o último elemento do array é utilizado o método <b>pop</b><br>
+                        Vamos excluir o último item da nossa array <i>verdura</i>, veja como:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const verduras = ["Alface", "Rúcula", "Agrião", "Espinafre", "Repolho"];
+verduras.pop()
+
+document.getElementById("excluirUltimoArray").innerHTML = (verduras);
+                        </code></pre>
+                    </div>
+                    <p>Agora veja o resultado do array sem seu último item "Repolho":</p>
+                    <p id="excluirUltimoArray"></p>
+                    <h3>Métodos <i>shift()</i></h3>
+                    <p>Para excluir o primeiro elemento do array é utilizado o método <b>shift</b><br>
+                        Vamos excluir o prieiro item da nossa array <i>padaria</i>, veja como:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const padaria = ["Rosca", "Pão", "Bolo", "Biscoito", "Torta"];
+padaria.shift()
+
+document.getElementById("excluirPrimeiroArray").innerHTML = (padaria);
+                        </code></pre>
+                    </div>
+                    <p>Agora veja o resultado do array sem seu primeiro item "Rosca":</p>
+                    <p id="excluirPrimeiroArray"></p>
+                    <h3>Métodos <i>unshift()</i></h3>
+                    <p>Para adicionar um elemento no início do array é utilizado o método <b>unshift</b><br>
+                        Vamos inseri na array <i>bebidas</i> o item "Cerveja" logo no início, veja como:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const bebidas = ["Água", "Refrigerante", "Suco", "Café", "Chá"];
+bebidas.unshift("Cerveja")
+
+document.getElementById("adicionarInicioArray").innerHTML = (bebidas);
+                        </code></pre>
+                    </div>
+                    <p>Agora veja o resultado do array um item a mais:</p>
+                    <p id="adicionarInicioArray"></p>
+                    <h3>Métodos <i>push()</i></h3>
+                    <p>Para adicionar um elemento no final do array é utilizado o método <b>push</b><br>
+                        Nossa array <i>carnes</i> precisa receber o item "Alcatra" no final, veja como:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const carnes = ["Maminha", "Costela", "Peixe", "Lombo", "Frango"];
+carnes.push("Alcatra")
+
+document.getElementById("adicionarFinalArray").innerHTML = (carnes);
+                        </code></pre>
+                    </div>
+                    <p>Agora veja o resultado do array um item a mais, mas agora no final:</p>
+                    <p id="adicionarFinalArray"></p>
+                    <h3>Métodos <i>splice()</i></h3>
+                    <p>Para adicionar itens entre outros é utilizado o método <b>splice</b><br>
+                        Para inserir os itens na nossa array <i>limpeza</i> precisamos dizer quantos itens
+                        são (2 itens) e qual posição nos queremos (posição 0) os itens são "Amaciante" e "Lustra
+                        Móveis".<br>
+                        Veja como fazemos isso:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const limpeza = ["Sabão", "Detergente", "Desinfetante", "Água Sanitária", "Esponja"];
+limpeza.splice(2, 0, "Amaciante", "Lustra Móveis");
+
+document.getElementById("adicionarMeioArray").innerHTML = (limpeza);
+                        </code></pre>
+                    </div>
+                    <p>Agora veja o resultado do array os item a mais:</p>
+                    <p id="adicionarMeioArray"></p>
+                    <h3>Métodos <i>concat()</i></h3>
+                    <p><br>Para concatenar arrays é utilizado o método <b>concat</b><br>
+                        Para concatenar as arrays é necessário criar uma const nova, e definir qual será a lista
+                        principal.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const listaSupermercado = ["frutas", "graos", "verduras", "padaria"];
+const listaEsquecida = ["bebidas", "carnes", "limpeza"];
+const listaAdd = ["Leite", "Ovos", "Açúcar", "Sal", "Óleo"];
+const compras = listaSupermercado.concat(listaEsquecida, listaAdd);
+
+document.getElementById("concatenarArray").innerHTML = (compras);
+                        </code></pre>
+                    </div>
+                    <p>Agora veja o resultado dos arrays concatenado em uma nova const "compras":</p>
+                    <p id="concatenarArray"></p>
+                    <h3>Métodos <i>slice()</i></h3>
+                    <p>Para fatiar arrays é utilizado o método <b>slice</b><br>
+                        Vamos fatiar e tirar alguns itens que não queremos na array <i>higiene</i>, temos que
+                        selecionar os itens que serão do 1 ao 3, lembrando que sempre começa com 0 (zero).
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const higiene = ["Shampoo", "Condicionador", "Creme Dental", "Sabonete", "Papel Higiênico"];
+const higiene1 = higiene.slice(1, 3);
+
+document.getElementById("cortarArray").innerHTML = (higiene1);
+                        </code></pre>
+                    </div>
+                    <p>Depois de fatiar o resultado do array os itens a menos fica dessa forma:</p>
+                    <p id="cortarArray"></p>
+                    <h3>Métodos <i>sort()</i></h3>
+                    <p>Para ordenar arrays em ordem alfabética é utilizado o método <b>sort</b>
+                        Queremos organizer a array <i>temperos</i> na ordem alfabética, veja como prosseguir:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const temperos = ["Sal", "Pimenta", "Açafrão", "Orégano", "Manjericão"];
+const temperosOrdem = temperos.sort();
+
+document.getElementById("ordenarArray").innerHTML = (temperosOrdem);
+                        </code></pre>
+                    </div>
+                    <p>O resultado do array ordenado é apresentado logo abaixo:</p>
+                    <p id="ordenarArray"></p>
+                    <h3>Métodos <i>sort(function...)</i></h3>
+                    <p>Para ordenar arrays numéricos, é necessário criar uma pequena função dentro do método
+                        <b>sort</b>.<br>
+                        Queremos organizer a array <i>gramas</i> na ordem numérica e crescente, veja como prosseguir:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const gramas = [50, 450, 10, 320, 5];
+const gramasOrdem = gramas.sort(function(a, b) {return a - b});
+
+document.getElementById("ordenarArrayNum").innerHTML = (gramasOrdem);
+                        </code></pre>
+                    </div>
+                    <p>O resultado do array ordenado é apresentado logo abaixo:</p>
+                    <p id="ordenarArrayNum"></p>
+                    <h3>Métodos <i>Math.max</i></h3>
+                    <p>Para encontrar o maior valor de um array é utilizado o método <b>Math.max</b><br>
+                        Caso queira pegar o menor número é só trocar o <b>Math.max</b> por <b>Math.min</b><br>
+                        O resultado é o maior ou menor valor da array <i>gramas</i>:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function maiorGrama(array) {
+    return Math.max.apply(null, array);
+}
+
+document.getElementById("maiorArrayNum").innerHTML = (maiorGrama(gramas));
+                        </code></pre>
+                    </div>
+                    <p>Agora veja o resultado do maior número do array</p>
+                    <p id="maiorArrayNum"></p>
+                    <h3>Métodos <i>filter()</i></h3>
+                    <p>Para filtrar arrays é utilizado o método <b>filter</b><br>
+                        Para melhor demonstrar, queremos somente os númoros maiores que 100 da nossa array
+                        <i>gramas</i>, veja como fazemos isso:
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const maior100 = gramas.filter(filtragem);
+
+function filtragem(value, index, array) {
+    return value > 100;
+}
+
+document.getElementById("filtrarArrayNum").innerHTML = (maior100);
+                        </code></pre>
+                    </div>
+                    <p>Agora veja o resultado da captura dos múmeros:</p>
+                    <p id="filtrarArrayNum"></p>
+                </div>
+            </section>
+            <section id="declaracoesCondicionais" class="fluid">
+                <div class="content">
+                    <h2>O que são Declarações Condicionais</h2>
+                    <p>As declarações condicionais são usadas para tomar decisões com base em diferentes condições.
+                        No JavaScript, as declarações condicionais são feitas com a palavra-chave if, else if e
+                        else.<br>
+                        Se a condição for verdadeira, o bloco de código dentro do "if" será executado.<br>
+                        Se a condição for falsa, o bloco de código dentro do "else" será executado.
+                    </p>
+                    <p>Criamos uma variável hora do sistema, que é exatamente a hora do seu computador, e a variável
+                        saudadacao para retornar qual tipo de saudação é o mais adequado.
+                        dentro do próprio código.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+var hora = new Date().getHours();
+var saudacao;
+
+if (hora &lt; 12) {
+    saudacao = "Bom dia!";
+}
+else if (hora &lt; 18) {
+    saudacao = "Boa tarde!";
+}
+else {
+    saudacao = "Boa noite!";
+}
+
+document.getElementById("horaSistema").innerHTML = (saudacao);
+                        </code></pre>
+                    </div>
+                    <p>Como pode ver o resultado abaixo, essa é a minha saudação a você:</p>
+                    <p id="horaSistema"></p>
+                    <h3>Declarações Condicionais com funções</h3>
+                    <p>Um exemplo mais prático para entendermos a aplicação da declaração condicional, é a validação
+                        de preenchimento de um campo, para isso vamos criar um campo onde se deve digitar o nome
+                        corretaente.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function veriNome() {
+    let nomeCondicional = document.getElementById("nomeCond").value;
+
+    if  (nomeCondicional == "" || nomeCondicional == null) {
+        let p = document.getElementById("resultNome")
+        p.innerHTML = "Digite um nome!";
+        p.style.color = "red";
+    }
+
+    else if (nomeCondicional.length &lt; 3) {
+        let p = document.getElementById("resultNome")
+        p.innerHTML = "O nome deve ter mais de 3 caracteres!";
+        p.style.color = "orange";
+    }
+
+    else {
+        let p = document.getElementById("resultNome")
+        p.innerHTML = `Ok, está completo`;
+        p.style.color = "green";
+    }
+}
+                            </code></pre>
+                    </div>
+                    <p>if & else são condicionais mais utilizados no JavaScript para verificação de campos,
+                        como pode ver o resultado abaixo, se o campo está vazio, então o resultado é falso.
+                        Se o campo está preenchido corretamente, então o resultado é verdadeiro.<br>
+                        E ainda verifica se o campo está preenchido corretamente com mais de 3 caracteres.
+                    </p>
+                    <input class="inputteste" type="text" id="nomeCond" placeholder="Digite o Nome">
+                    <button class="botao_amostra" onclick="veriNome()">Verificar</button>
+                    <p id="resultNome"></p>
+                </div>
+            </section>
+            <section id="switch" class="fluid">
+                <div class="content">
+                    <h2>Como funciona um Switch</h2>
+                    <p>A declaração switch é usada para selecionar um dos muitos blocos de código a serem executados.
+                        A declaração switch avalia uma expressão, combina o valor da expressão com um caso e executa o
+                        bloco de código associado ao caso.
+                    </p>
+                    <p>Criamos uma variável para retornar o dia da semana, essa informação é exatamente a do seu
+                        computador.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function diaSemana() {
+    let dia;
+    switch (new Date().getDay()) {
+        case 0:
+            dia = "Hoje é Domingo";
+            break;
+        case 1:
+            dia = "Hoje é Segunda-feira";
+            break;
+        case 2:
+            dia = "Hoje é Terça-feira";
+            break;
+        case 3:
+            dia = "Hoje é Quarta-feira";
+            break;
+        case 4:
+            dia = "Hoje é Quinta-feira";
+            break;
+        case 5:
+            dia = "Hoje é Sexta-feira";
+            break;
+        case 6:
+            dia = "Hoje é Sábado";
+            break;
+        default:
+            dia = "Não sei qual é o dia";
+
+    }
+    document.getElementById("switchCase").innerHTML = (dia);
+}
+                        </code></pre>
+                    </div>
+                    <p>O JavaScript também pode ter formas diferentes de se escrver, veja outra forma de escrever o
+                        mesmo código.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function diaSemana() {
+    let dia = new Date().getDay();
+
+    switch (dia) {
+        case 0:
+        document.getElementById("switchCase").innerHTML = "Hoje é Domingo";
+            break;
+        case 1:
+        document.getElementById("switchCase").innerHTML = "Hoje é Segunda-feira";
+            break;
+        case 2:
+        document.getElementById("switchCase").innerHTML = "Hoje é Terça-feira";
+            break;
+        case 3:
+        document.getElementById("switchCase").innerHTML = "Hoje é Quarta-feira";
+            break;
+        case 4:
+        document.getElementById("switchCase").innerHTML = "Hoje é Quinta-feira";
+            break;
+        case 5:    
+        document.getElementById("switchCase").innerHTML = "Hoje é Sexta-feira";
+            break;
+        case 6:    
+        document.getElementById("switchCase").innerHTML = "Hoje é Sábado";
+            break;
+        default:    
+        document.getElementById("switchCase").innerHTML = "Não sei qual é o dia";
+    }
+
+}
+                        </code></pre>
+                    </div>
+                    <p>Clique no botão abaixo para verificar qual o dia de hoje:</p>
+                    <button class="botao_amostra" onclick="diaSemana()">Verificar</button>
+                    <p id="switchCase"></p>
+                    <h3>Switch - Exemplo</h3>
+                    <p>Criamos um exemplo para adivinhar qual cor está escrita no nosso código. É óbvio que
+                        você está vendo o código e saberá a resposta, mas vale a brincadeira.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function qualCor() {
+    let cor = document.getElementById("cor").value;
+    cor = cor.toLowerCase(); //Transforma a string em minúscula
+    let resultado = document.getElementById("switchCaseCor");
+
+    switch (cor) {
+        case "vermelho":
+            resultado.innerHTML = "A cor é vermelha"; 
+            resultado.style.backgroundColor = "red"; 
+            resultado.style.color = "white";
+            break;
+        case "azul":
+            resultado.innerHTML = "A cor é azul"; 
+            resultado.style.backgroundColor = "blue"; 
+            resultado.style.color = "white";
+            break;
+        case "verde":
+            resultado.innerHTML = "A cor é verde";
+            resultado.style.backgroundColor = "green"; 
+            resultado.style.color = "wcampoAlteradohite";
+            break;
+        case "amarelo":
+            resultado.innerHTML = "A cor é amarela"; 
+            resultado.style.backgroundColor = "yellow" 
+            resultado.style.color = "black";
+            break;
+        default:
+            resultado.innerHTML = "Não sei qual é a cor";
+            resultado.style.backgroundColor = "white"; 
+            resultado.style.color = "black";
+    }
+    
+}
+                            </code></pre>
+                    </div>
+                    <p>Digite uma cor no campo e veja o resulta que o código nos retorna:
+                    </p>
+                    <input class="inputteste" id="cor" type="text" placeholder="Qual a cor?">
+                    <button class="botao_amostra" onclick="qualCor()">Verificar</button>
+                    <div class="campoteste2" id="switchCaseCor">
+                        <p></p>
+                    </div>
+                    <!--
+                    <h3>Switch - Exemplo Campo 0</h3>
+                    <p>O Switch também identifica os valores 0 (campo vazio) ou texto quando digitado.<br>
+                        Para isso criamos um código onde o switch vai nos dizer se o campo está vazio ou se
+                        há um "0" (zero) nesse caso tipo texto peenchido.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function campoZero() {
+    let campo = document.getElementById("campoVazio").value;
+
+    switch (campo) {
+        case "0":
+            document.getElementById("campoZeroResult").innerHTML = `A variável é 0 / Texto`;    
+            break;
+        case "":
+            document.getElementById("campoZeroResult").innerHTML = `A variável é zero absoluto / nulo`;    
+            break;
+        default:
+            document.getElementById("campoZeroResult").innerHTML = `Não corresponde ao campo`;
+    }
+}       
+                            </code></pre>
+                    </div>
+                    <p>Digite no campo e veja o resulta que o código nos retorna:
+                    </p>
+                    <input class="inputteste" type="cor" id="campoVazio" placeholder="0 (campo vazio)">
+                    <button class="botao_amostra" onclick="campoZero()">Verificar</button>
+                    <p id="campoZeroResult"></p>
+-->
+                </div>
+            </section>
+            <section id="lacosRepeticao" class="fluid">
+                <div class="content">
+                    <h2>Vamos entender os Laços de Repetição</h2>
+                    <p>Os laços de repetição são usados para executar o mesmo bloco de código várias vezes.<br>
+                        No JavaScript, os laços de repetição são feitos com as palavras-chave for, while e do while.
+                    </p>
+                    <p>Vamos criar uma variável chamada <b>i</b> de incersão, e nela vamos dizer enquanto a variável for
+                        menor que 10, o resultado será exibido.<br><br>
+
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+for (let i = 0; i &lt; 10; i++) {
+    document.getElementById("repeticao").innerHTML += i + ", ";
+}
+                        </code></pre>
+                    </div>
+                    <p>Como pode ver o resultado é encerrando antes de chegar ao 10, pois dizemos que enquanto menor, no
+                        próximo
+                        exemplo vamos fazer diferente, e o resultado será diferente também.
+                    </p>
+                    <p id="repeticao"></p>
+                    <h3>Laços de repetição - Exemplo prático</h3>
+                    <p>Vamos criar um exemplo prácito, nesse modelo vamos utilizar na função select para possamos listar
+                        de forma
+                        rápida os anos de 1900 ao ano atual, algo que poderia demorar muito ou exigir muito código.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-html" id="code-block">
+&lt;select class="selectamostra" id="selectAno"&gt;
+&lt;option selected disabled&gt;Selecione o Ano&lt;/option&gt;
+&lt;/select&gt;
+                            </code></pre>
+                    </div>
+                    <p>Nosso select no HTML não apresenta valores, isso é o JS que vai completar</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let selcaoAno = (new Date().getFullYear());
+
+for (let i = selcaoAno; i &gt;= 1900; i--) {
+    document.getElementById("selectAno").innerHTML += 
+    "&lt;option value='" + i + "'&gt;" + i + "&lt;/option&gt;";
+}
+                            </code></pre>
+                    </div>
+                    <p>Veja como fica o resultado, facilitando a escolha do ano de nascimento, por exemplo.<br>
+                        Selecione o ano de nascimento</p>
+                    <select class="selectamostra" id="selectAno">
+                        <option selected disabled>Selecione o Ano</option>
+                    </select>
+                    <h3>Laços de repetição - Busca em um array</h3>
+                    <p>Com o laço de repetição não é sempre obrigatório inserir os valores, é possivel também bucar
+                        todos os itens dentro de um array, vamos ver como funciona.
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const autos = [
+    "Fiat", 
+    "Ford", 
+    "Chevrolet", 
+    "Volkswagen", 
+    "Renault", 
+    "Peugeot", 
+    "Toyota", 
+    "Honda", 
+    "Hyundai", 
+    "Kia"];
+
+var tamanho = autos.length;
+
+for (let i = 0; i &lt; tamanho; i++) {
+    document.getElementById("forArray").innerHTML += autos[i] + " | ";
+}                                    </code></pre>
+                    </div>
+                    <p>Repare qua no código, estamos pedindo para buscar as informações na largura total da nossa
+                        array<br>
+                        Veja o resultado logo abaixo</p>
+                    <p id="forArray"></p>
+                    </p>
+                </div>
+            </section>
+            <section id="eventosTempo" class="fluid">
+                <div class="content">
+                    <h2>Vamos entender os Eventos de Tempo</h2>
+                    <p>Os eventos de tempo são usados para executar funções após um determinado tempo.<br>
+                        No JavaScript, os eventos de tempo são feitos com as funções setTimeout e setInterval.
+                    </p>
+                    <p>As funções de tempo são especificadas em milisegundos: 1000 ms = 1 segundo.</p>
+                    <p>Vamos criar um exemplo onde o tempo será contando de 0 a 5 ao clicar no botão "Ativar contagem",
+                        a mensagem "Começou a contar!" aparece na tela e ao chegar ao seu final, a mensagem "Executou a
+                        contagem" é
+                        exibida na tela.<br>
+                        Caso seja clicado no botão "Parar contagem" seja clicado, a mensagem "Parou a contagem!" será
+                        exibida e
+                        zera a contagem.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function starCount() {
+        document.getElementById("time").innerHTML = "Começou a contar!";
+        tempo = setTimeout(function() { 
+            document.getElementById("time").innerHTML = "Executou a contagem";
+         }, 5000);
+         clearTimeout(); //Para um determinado intervalo, mas não zera o tempo.
+         setTimeout(function() { 
+            document.getElementById("time").innerHTML = "Tempo Parado!";
+         }, 7000);
+         
+}
+
+function stopCount() {
+    clearTimeout(tempo);
+    document.getElementById("time").innerHTML = "Parou a contagem!";
+    setTimeout(function() {
+        document.getElementById("time").innerHTML = "Tempo Parado!";
+    }, 2000);
+}
+                        </code></pre>
+                    </div>
+                    <p>Veja o seu funcionamento testando a contagem:</p>
+                    <h3 id="time">Tempo Parado!</h3>
+                    <div class="row">
+                        <button onclick="starCount()" class="botao_amostra">Ativar contagem</button>
+                        <div style="width: 20px;"></div>
+                        <button onclick="stopCount()" class="botao_amostra">Parar contagem</button>
+                    </div>
+                    <h3>Eventos de tempo - Contagem regressiva</h3>
+                    <p>Agora vamos criar um exemplo onde o tempo está contando de 10 à 0 no formato de contagem
+                        regressiva,
+                        ao chegar em 0, a mensagem "Acabou o tempo!" é exibida na tela.<br>
+                        Caso seja clicado no botão "Parar contagem", a mensagem "Parou a contagem!"
+                        será exibida e zera a contagem.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function starCount1() {
+    tempo2 = setInterval(function() { 
+        var cronometro = document.getElementById("time1").innerHTML;
+        var soma = parseInt(cronometro) - 1;
+
+        if (soma === 0) {
+            document.getElementById("time1").innerHTML = "Acabou o tempo!";
+            stopInt();
+            zeraTempo();
+        }
+        else {
+            document.getElementById("time1").innerHTML = soma;
+        }
+
+         }, 1000);
+}
+
+function stopInt() {
+    clearTimeout(tempo2);
+}
+
+function zeraTempo() {
+    setTimeout(function() { 
+        document.getElementById("time1").innerHTML = "10";
+     }, 2000);
+}
+
+function stopCount1() {
+    clearTimeout(tempo2);
+    document.getElementById("time1").innerHTML = "Parou a contagem!";
+    setTimeout(function() { 
+        document.getElementById("time1").innerHTML = "10";
+     }, 2000);
+}
+                            </code></pre>
+                    </div>
+                    <p>Veja o seu funcionamento testando a contagem regressiva:</p>
+                    <h3 id="time1">10</h3>
+                    <div class="row">
+                        <button onclick="starCount1()" class="botao_amostra">Ativar contagem</button>
+                        <div style="width: 20px;"></div>
+                        <button onclick="stopCount1()" class="botao_amostra">Parar contagem</button>
+                    </div>
+
+
+
+                </div>
+            </section>
+            <section id="classe" class="fluid">
+                <div class="content">
+                    <h2>O que são Classe em JavaScript</h2>
+                    <p>Em 2015 foi introduzido ao JavaScript as Classes. As Classe são um conceito antigo em programação
+                        em várias linguagens, mas no Javascript é relativamente novo a ponto de muitos programadores
+                        terem dificuldades com elas.</p>
+                    <p>Basicamente, Classe são como "fábricas" para criar objetos.</p>
+                    <p>Pode-se dizer que são "funções especiais" para criar objetos.</p>
+                    <p>Exemplo de Objeto<br>
+                        const carro = {marca: "Fiat", modelo: "Uno", ano:"2001"}
+                    </p>
+                    <p>Assim como no mundo real as fábricas precisam de máquinas para produzirem, as Classe no
+                        javascript usam um método chamado constructor() para produzir objetos.
+                    </p>
+                    <p>O nome da classe sempre deve ser escrito com a primeira letra maiúscula, invés de "class carro",
+                        se escreve "class Carro".</p>
+                    <p>Valores alterados, aparecem posteriormente, a leitura no Javascript é de cima para baixo.<br>
+                        O mesmo é válido para a construção das classes, elas sempre devem ser feita antes das chamados,
+                        diferente de uma função.
+                    </p>
+                    <p>No exemplo a seguir, foram criados três objetos com os valores já predefinidos.<br>
+                        A class Carros tem valores como marca, modelo e ano e 03 objetos chamados de veículo1, veículo2
+                        e veículo3.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+class Carro {
+    constructor(vlr1, vlr2, vlr3) {
+        this.marca = vlr1;
+        this.modelo = vlr2;
+        this.ano = vlr3;
+        
+    }
+    buzina() {
+        return this.modelo + " buzinou";
+    }
+}
+
+const veiculo1 = new Carro("Fiat", "Palio", "2008")
+const veiculo2 = new Carro("VW", "Gol", "2013")
+const veiculo3 = new Carro("GM", "Vectra", "1994")
+
+console.log(veiculo1.modelo);
+console.log(veiculo2.buzina());
+console.log(veiculo3);
+
+veiculo3.ano = 1996
+console.log(veiculo3);
+
+document.getElementById("classes").innerHTML = 
+`${veiculo1.marca}, ${veiculo2.modelo}, ${veiculo3.ano}`;
+                        </code></pre>
+                    </div>
+                    <p>Veja que solicitamos a marca do veículo1, o modelo do veiculo2 e o ano do veiculo3:</p>
+                    <p id="classes"></p>
+
+
+
+
+
+
+
+
+                </div>
+            </section>
+            <section id="manipularDatas" class="fluid">
+                <div class="content">
+                    <h2>Manipular datas no JavaScript</h2>
+                    <p>Agora vamos aprender como manipular as datas no JavaScript<br>
+                        Vamos começar pegando a base das datas, é com ela que podemos manipular a maioria dos casos</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let dataBase = new Date();
+
+document.getElementById("tempo").innerHTML = (dataBase);
+                        </code></pre>
+                    </div>
+                    <p>Como pode ver acima, este é o comando base para pegar a data atual, veja abaixo o resultado:</p>
+                    <p id="tempo"></p>
+                    <h3>Comando para pegar o ano atual com 4 digitos</h3>
+                    <p>Nesse exemplo, manipulando a variável dataBase, pegamos apenas o <b>ANO</b>.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let anoBase = dataBase.getFullYear();
+
+document.getElementById("tempo2").innerHTML = (anoBase);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo2"></p>
+                    <h3>Comando para pegar o mês atual</h3>
+                    <p>Nesse exemplo, manipulando a variável dataBase, pegamos apenas o <b>MÊS</b>, porém a
+                        contagem começa de 0 = Janeiro à 11 = Dezembro, para solucionar o problema basa somar +1.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let mesBase = dataBase.getMonth()+1;
+
+document.getElementById("tempo3").innerHTML = (mesBase);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo3"></p>
+                    <h3>Mostrar o mês na forma escrita</h3>
+                    <p>Nesse exemplo, com um array é possível determinar o mês escrito, tornando o número em sua forma
+                        escrita.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const mesesAno = ["Janeiro", 
+    "Fevereiro", 
+    "Março", 
+    "Abril", 
+    "Maio", 
+    "Junho", 
+    "Julho", 
+    "Agosto", 
+    "Setembro", 
+    "Outubro", 
+    "Novembro",
+    "Dezembro"];
+
+let mesGregoriano = mesesAno[dataBase.getMonth()];
+
+document.getElementById("tempo4").innerHTML = (mesGregoriano);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo4"></p>
+                    <h3>Comando para pegar o dia do mês atual</h3>
+                    <p>Nesse exemplo, manipulando a variável dataBase, pegamos apenas o <b>DIA DO MÊS</b>, a
+                        contagem é padrão sendo de 1 à 31.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let diaMBase = dataBase.getDate();
+
+document.getElementById("tempo5").innerHTML = (diaMBase);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo5"></p>
+                    <h3>Comando para pegar o dia da semana atual</h3>
+                    <p>Nesse exemplo, manipulando a variável dataBase, pegamos apenas o <b>DIA DA SEMANA</b>, porém a
+                        contagem começa de 0 à 6, para solucionar o problema basa somar +1.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let diaMBase = dataBase.getDate()+1;
+
+document.getElementById("tempo5").innerHTML = (diaMBase);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo6"></p>
+                    <h3>Mostrar os dias da semana na forma escrita.</h3>
+                    <p>Nesse exemplo, com um array é possível determinar o dia da semana em sua forma escrito,
+                        tornando o getDate() que retorna números em texto.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const diaSemanal = ["Domingo", 
+    "Segunda-Feira", 
+    "Terça-Feira", 
+    "Quarta--Feira", 
+    "Quinta-Feira", 
+    "Sexta-Feira", 
+    "Sábado"];
+
+let semGregoriano = diaSemanal[dataBase.getDay()];
+
+document.getElementById("tempo7").innerHTML = (semGregoriano);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo7"></p>
+                    <h3>Comando para pegar a hora atual</h3>
+                    <p>Nesse exemplo, manipulando a variável dataBase, pegamos a <b>HORA ATUAL</b> que tem
+                        como contagem de 0 á 23, porém nesse caso não há necessidade de ajuste de contagem.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let horaAtual = dataBase.getHours();
+
+document.getElementById("tempo8").innerHTML = (horaAtual);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo8"></p>
+                    <h3>Comando para pegar os minutos atuais</h3>
+                    <p>Nesse exemplo, manipulando a variável dataBase, pegamos os <b>MINUTOS</b> que tem
+                        como contagem de 0 á 59, porém nesse caso também não há necessidade de ajuste de contagem.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let minAtual = dataBase.getMinutes();
+
+document.getElementById("tempo9").innerHTML = (minAtual);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo9"></p>
+                    <h3>Comando para pegar os segundos atuais</h3>
+                    <p>Nesse exemplo, manipulando a variável dataBase, pegamos os <b>SEGUNDOS</b> que tem
+                        como contagem de 0 á 59, porém nesse caso também não há necessidade de ajuste de contagem.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let segAtual = dataBase.getSeconds();
+
+document.getElementById("tempo10").innerHTML = (segAtual);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo10"></p>
+                    <h3>Comando para pegar os milisegundos atuais</h3>
+                    <p>Nesse exemplo, manipulando a variável dataBase, pegamos os <b>MILISEGUNDOS</b> que tem
+                        como contagem de 0 á 999.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let msegAtual = dataBase.getMilliseconds();
+
+document.getElementById("tempo11").innerHTML = (msegAtual);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo11"></p>
+                    <h3>Comando para pegar a data no padrão local (Brasileiro)</h3>
+                    <p>Nesse exemplo, manipulando a variável dataBase, pegamos a data no padrão local
+                        sendo usado <b>pt-BR</b> no padrão Brasileiro.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let dataBR = dataBase.toLocaleString('pt-BR');
+//Comando para mostrar apenas a data
+//let dataBR = dataBase.toLocaleString('pt-BR', {dateStyle:'short'});
+//Comando para mostrar apenas a hora
+//let dataBR = dataBase.toLocaleString('pt-BR', {timeStyle:'short'});
+document.getElementById("tempo12").innerHTML = (dataBR);
+                        </code></pre>
+                    </div>
+                    <p>veja abaixo o resultado:</p>
+                    <p id="tempo12"></p>
+
+
+                    <h3>Exemplo de Manipulação de Datas <i>(Vencimento)</i></h3>
+                    <p>Nesse exemplo vamos comparar a data de vencimento da sua conta com a data do sistema.<br>
+                        Selecione as datas e veja o resultado.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+for (let diaV = 1; diaV &lt;= 31; diaV++) {
+    document.getElementById("boletoDia").innerHTML += 
+    "&lt;option value='" + diaV + "'&gt;" + diaV + "&lt;/option&gt;";}
+
+for (let mesV = 1; mesV &lt;= 12; mesV++) {
+    document.getElementById("boletoMes").innerHTML += 
+    "&lt;option value='" + mesV + "'&gt;" + mesV + "&lt;/option&gt;";}
+
+let sAno = (new Date().getFullYear());
+
+for (let anoV = sAno; anoV >= 1900; anoV--) {
+    document.getElementById("boletoAno").innerHTML += 
+    "&lt;option value='" + anoV + "'&gt;" + anoV + "&lt;/option&gt;";
+}
+
+function verVencimento(){
+    let diaVenc = document.getElementById('boletoDia').value;
+    let mesVenc = document.getElementById('boletoMes').value;
+    let anoVenc = document.getElementById('boletoAno').value;
+    
+    let dia = parseInt(diaVenc);
+    let mes = parseInt(mesVenc) - 1;
+    let ano = parseInt(anoVenc);
+
+    let hoje = new Date();
+    let vencimento = new Date(ano, mes, dia);
+    let mensagem = document.getElementById('boletoVencimento')
+
+if (isNaN(vencimento.getTime())) {
+        mensagem.innerHTML = "Selecione uma data válida";
+        return;
+}
+if (hoje > vencimento){
+    mensagem.innerHTML = "Sua conta está vencida";
+    //console.log("Sua conta está vencida")
+}
+else {
+    mensagem.innerHTML = "Ainda não venceu, tudo certo!";
+    //console.log("Ainda não venceu, tudo certo!")
+}
+}
+                        </code></pre>
+                    </div>
+                    <p>Faça o comparativo:</p>
+                    <div class="row">
+                        <select class="selectamostra" id="boletoDia">
+                            <option selected disabled>Selecione o Dia</option>
+                        </select>
+                        <div style="width: 0.5rem;"></div>
+                        <select class="selectamostra" id="boletoMes">
+                            <option selected disabled>Selecione o Mês</option>
+                        </select>
+                        <div style="width: 0.5rem;"></div>
+                        <select class="selectamostra" id="boletoAno">
+                            <option selected disabled>Selecione o Ano</option>
+                        </select>
+                    </div>
+                    <button class="botao_amostra" onclick="verVencimento()">Comparar</button>
+                    <p id="boletoVencimento"></p>
+                    <h3>Exemplo de Manipulação de Datas <i>(Diferença entre datar)</i></h3>
+                    <p>Nesse exemplo vamos comparar quantos dias faltam, ou quantos dias já se passaram.<br>
+                        Selecione as datas e veja o resultado.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+document.addEventListener("DOMContentLoaded", function() {
+    let selectDia = document.getElementById("compDia");
+    let selectMes = document.getElementById("compMes");
+    let selectAno = document.getElementById("compAno");
+
+    for (let diaD = 1; diaD &lt;= 31; diaD++) {
+        let option = document.createElement("option");
+        option.value = diaD;
+        option.textContent = diaD;
+        selectDia.appendChild(option);
+    }
+
+    for (let mesD = 1; mesD &lt;= 12; mesD++) {
+        let option = document.createElement("option");
+        option.value = mesD;
+        option.textContent = mesD;
+        selectMes.appendChild(option);
+    }
+
+    let dAno = new Date().getFullYear();
+    for (let anoD = dAno; anoD >= 1900; anoD--) {
+        let option = document.createElement("option");
+        option.value = anoD;
+        option.textContent = anoD;
+        selectAno.appendChild(option);
+    }
+});
+
+function verComparativo() {
+    let diaComp = parseInt(document.getElementById('compDia').value);
+    let mesComp = parseInt(document.getElementById('compMes').value) - 1; // Mês começa do zero
+    let anoComp = parseInt(document.getElementById('compAno').value);
+
+
+    let dataInicial = new Date();
+    let dataFinal = new Date(anoComp, mesComp, diaComp);
+
+    let diferencaTempo = dataFinal.getTime() - dataInicial.getTime();
+    let diferencaDias = Math.ceil(diferencaTempo / (24*60*60*1000));
+
+    document.getElementById('comparativo').innerHTML = diferencaDias + " dias";
+    //console.log(diferencaDias + " dias");
+}
+                        </code></pre>
+                    </div>
+                    <p>Veja a diferença de dias:</p>
+
+                    <div class="row">
+                        <select class="selectamostra" id="compDia">
+                            <option selected disabled>Selecione o Dia</option>
+                        </select>
+                        <div style="width: 0.5rem;"></div>
+                        <select class="selectamostra" id="compMes">
+                            <option selected disabled>Selecione o Mês</option>
+                        </select>
+                        <div style="width: 0.5rem;"></div>
+                        <select class="selectamostra" id="compAno">
+                            <option selected disabled>Selecione o Ano</option>
+                        </select>
+                    </div>
+                    <button class="botao_amostra" onclick="verComparativo()">Qual a diferença?</button>
+                    <p id="comparativo"></p>
+                </div>
+            </section>
+            <section id="json" class="fluid">
+                <div class="content">
+                    <h2>Vamos entender de JSON</h2>
+                    <p>JSON significa JavaScript Object Notation, é basicamente uma forma de transformar objeto em texto
+                        e vicee versa.<br>
+                        Ele é utilizado para transmitir dados entre sistemas de forma simples, pois texto é o formato
+                        lido por praticamente toda linguagem de programação.
+                    </p>
+                    <p>Para trabalhar com JSON no JavaScript usamos dois métodos:</p>
+                    <p>JSON.parce() -> Converte texto no padrão JSON em objeto;<br>
+                        JSON.stringify() -> Converte objetos em texto no padrão JSON.
+                    </p>
+                    <p>JSON é como um tradutor da qual transforma código em texto, e texto devolta em código.<br>
+                        Vamos criar um exemplo onde será convertido um objeto em texto.
+                    </p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+const carro = {
+    marca: "Fiat",
+    modelo: "Uno",
+    ano:"2001",
+    motor:["1.4","1.0"]
+}
+
+let txtJSON = JSON.stringify(carro)
+
+document.getElementById('jsontxt').innerHTML = (txtJSON);
+                        </code></pre>
+                    </div>
+                    <p>Confira o resultado da conversão do objeto carro:</p>
+                    <p id="jsontxt"></p>
+                    <p>Agora vamos fazer o contrário, continuando o exemplo, vamos convertemos o texto devolta em um
+                        objeto.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+let objJSON = JSON.parse(txtJSON)
+
+document.getElementById('jsonobj').innerHTML = (objJSON.modelo);
+                        </code></pre>
+                    </div>
+                    <p>Como resultado do objeto, queremos o modelo do objeto carro, veja o resultado:</p>
+                    <p id="jsonobj"></p>
+                    <h3>Exemplo de uso do JSON</h3>
+                    <p>Nesse exemplo vamos buscar as informações do site https://viacep.com.br/ e inseri-la no nosso
+                        código.<br>
+                        Vamos capturar informações de CPE e retornar com um conjunto de informações desejado.</p>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>JS</span>
+                            <button class="copy-btn" onclick="copyCode()">Copiar</button>
+                        </div>
+                        <pre><code class="language-javascript" id="code-block">
+function buscarCEP() {
+    let input = document.getElementById('cep').value;
+
+    const ajax = new XMLHttpRequest();
+    ajax.open('GET', 'https://viacep.com.br/ws/'+ input +'/json/');
+    ajax.send();
+
+    ajax.onload = function(){
+//    document.getElementById('txtajax').innerHTML = this.responseText;
+    let objajax = JSON.parse(this.responseText);
+    let logradouro = objajax.logradouro;
+    let bairro = objajax.bairro;
+    let cidade = objajax.localidade;
+    let estado = objajax.estado;
+    let regiao = objajax.regiao;
+    let ddd = objajax.ddd;
+
+    document.getElementById('txtajax').innerHTML = 
+    "Endereço: " + logradouro + 
+    "&lt;br&gt;Bairro: " + bairro + 
+    "&lt;br&gt;Cidade: " + cidade + 
+    "&lt;br&gt;Estado: " + estado + 
+    "&lt;br&gt;Região: " + regiao + 
+    "&lt;br&gt;DDD: " + ddd;
+    }
+}
+                        </code></pre>
+                    </div>
+                    <p>Digite o CEP e veja o resultado com as informações obtidas.</p>
+                    <input class="inputteste" id="cep" type="text" placeholder="Digite o seu CEP">
+                    <button class="botao_amostra" onclick="buscarCEP()">Buscar</button>
+                    <p id="txtajax"></p>
+                </div>
+            </section>
+            <div class="fluid">
+                <div class="tobecontinued">
+                    <h3>Chegamos ao fim dos nossos estudos, mas por enquanto...</h3>
+                    <h3 class="cursor">|</h3>
+                </div>
+            </div>
+        </div>
+        <div class="social-links">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/luimar-mota" target="_blank" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z">
+                    </path>
+                </svg>
+            </a>
+            <!-- Github -->
+            <a href="https://github.com/Luimar2" target="_blank" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z">
+                    </path>
+                </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/sup.dilsan" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
+                    </path>
+                </svg>
+            </a>
+            <!-- Threads -->
+            <a href="https://www.threads.net/@luimar2" target="_blank" aria-label="Threads">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M186.42,123.65a63.81,63.81,0,0,0-11.13-6.72c-4-29.89-24-39.31-33.1-42.07-19.78-6-42.51,1.19-52.85,16.7a8,8,0,0,0,13.32,8.88c6.37-9.56,22-14.16,34.89-10.27,9.95,3,16.82,10.3,20.15,21a81.05,81.05,0,0,0-15.29-1.43c-13.92,0-26.95,3.59-36.67,10.1C94.3,127.57,88,139,88,152c0,20.58,15.86,35.52,37.71,35.52a48,48,0,0,0,34.35-14.81c6.44-6.7,14-18.36,15.61-37.1.38.26.74.53,1.1.8C186.88,144.05,192,154.68,192,168c0,19.36-20.34,48-64,48-26.73,0-45.48-8.65-57.34-26.44C60.93,175,56,154.26,56,128s4.93-47,14.66-61.56C82.52,48.65,101.27,40,128,40c32.93,0,54,13.25,64.53,40.52a8,8,0,1,0,14.93-5.75C194.68,41.56,167.2,24,128,24,96,24,72.19,35.29,57.34,57.56,45.83,74.83,40,98.52,40,128s5.83,53.17,17.34,70.44C72.19,220.71,96,232,128,232c30.07,0,48.9-11.48,59.4-21.1C200.3,199.08,208,183,208,168,208,149.66,200.54,134.32,186.42,123.65Zm-37.89,38a31.94,31.94,0,0,1-22.82,9.9c-10.81,0-21.71-6-21.71-19.52,0-12.63,12-26.21,38.41-26.21A63.88,63.88,0,0,1,160,128.24C160,142.32,156,153.86,148.53,161.62Z">
+                    </path>
+                </svg>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="https://x.com/luimar2" target="_blank" aria-label="Twitter / X">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z">
+                    </path>
+                </svg>
+            </a>
+            <!-- Whatsapp -->
+            <a href="https://wa.me/5531975200390" target="_blank" aria-label="Whatsapp">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z">
+                    </path>
+                </svg>
+            </a>
+        </div>
+        <footer class="footer">&copy; 2025 All Rights Reserved By&nbsp;<a href="https://supdilsan.com.br/"
+                target="_blank">
+                Luimar Dilsan Mota</a></footer>
+    </div>
+    <script src="js/aulaScript.js"></script>
+    <script src="js/jacod-script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+</body>
+
+</html>
